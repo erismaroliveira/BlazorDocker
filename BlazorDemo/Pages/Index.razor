@@ -1,0 +1,21 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+The current environment is: @envName
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    string envName;
+    [Inject] IConfiguration Configuration { get; set; }
+
+    protected override void OnInitialized()
+    {
+        envName = Configuration.GetValue<string>("EnvName");
+    }
+}
